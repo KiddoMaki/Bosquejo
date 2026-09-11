@@ -112,6 +112,15 @@ p {
   gap: 0.8rem;
 }
 
+.brand-logo {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(214, 172, 92, 0.3);
+  border: 2px solid rgba(214, 172, 92, 0.45);
+}
+
 .brand-mark {
   width: 52px;
   height: 52px;
