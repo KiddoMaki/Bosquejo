@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bosquejo de una página web para restaurante con menú, reseñas, eventos, ubicacion y carrito de compras."
+    />
+    <title>El Patio Verde | Restaurante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <div class="brand" aria-label="Logo del restaurante">
+          <div class="brand-mark">EP</div>
+          <div>
+            <p class="brand-name">El Patio Verde</p>
+            <span class="brand-tag">Sabor casero</span>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#menu">Menú</a>
+          <a href="#history">Historia</a>
+          <a href="#reviews">Reseñas</a>
+          <a href="#events">Eventos</a>
+          <a href="#contact">Contacto</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-secondary">Reservar</button>
+          <a href="#cart" class="btn btn-primary cart-toggle" aria-label="Ir al carrito">
+            Carrito <span id="cart-count">2</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">Comida fresca • Ambiente acogedor</p>
+            <h1>Disfruta del sabor de la cocina casera en cada bocado.</h1>
+            <p class="lead">
+              En El Patio Verde combinamos ingredientes de temporada, recetas tradicionales
+              y un ambiente relajado para convertir cada comida en un momento especial.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-primary">Ver menú</a>
+              <a href="#events" class="btn btn-secondary">Próximos eventos</a>
+            </div>
+
+            <ul class="hero-stats" aria-label="Estadísticas del restaurante">
+              <li>
+                <strong>4.9/5</strong>
+                <span>Valoración</span>
+              </li>
+              <li>
+                <strong>12+</strong>
+                <span>Años de historia</span>
+              </li>
+              <li>
+                <strong>20 min</strong>
+                <span>Tiempo promedio</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Imagen decorativa del restaurante">
+            <div class="image-card large">
+              <div class="image-overlay">
+                <span>Plato del día</span>
+                <strong>Ceviche verde</strong>
+              </div>
+            </div>
+            <div class="mini-card">
+              <p>Más vendido</p>
+              <strong>Paella de mariscos</strong>
+              <span>Desde $23.00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="container features-grid">
+          <article>
+            <div class="icon">🍽️</div>
+            <h3>Menú variado</h3>
+            <p>Platos principales, tapas y opciones para todos los gustos.</p>
+          </article>
+          <article>
+            <div class="icon">🥬</div>
+            <h3>Ingredientes frescos</h3>
+            <p>Productos locales y de temporada en cada preparación.</p>
+          </article>
+          <article>
+            <div class="icon">🚚</div>
+            <h3>Pedido a domicilio</h3>
+            <p>Consulta rápida, entrega ágil y soporte atento.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="menu" class="menu section-spacing">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Nuestra carta</p>
+            <h2>Platos destacados</h2>
+          </div>
+
+          <div class="menu-grid">
+            <article class="food-card" data-name="Ceviche Verde" data-price="18.00">
+              <div class="food-image food-one"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Ceviche Verde</h3>
+                  <span>$18.00</span>
+                </div>
+                <p>Pescado fresco, cítricos, aguacate y hierbas aromáticas.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+
+            <article class="food-card" data-name="Paella de Mariscos" data-price="23.50">
+              <div class="food-image food-two"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Paella de Mariscos</h3>
+                  <span>$23.50</span>
+                </div>
+                <p>Arroz con mariscos, azafrán y una textura perfectamente cremosa.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+
+            <article class="food-card" data-name="Pasta al Pesto" data-price="16.00">
+              <div class="food-image food-three"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Pasta al Pesto</h3>
+                  <span>$16.00</span>
+                </div>
+                <p>Rigatoni con pesto casero, queso parmesan y tomates cherry.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+
+            <article class="food-card" data-name="Tacos de Pollo" data-price="14.50">
+              <div class="food-image food-four"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Tacos de Pollo</h3>
+                  <span>$14.50</span>
+                </div>
+                <p>Pollo al grill, salsa de aguacate y tortillas recién hechas.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+
+            <article class="food-card" data-name="Ensalada Mediterránea" data-price="12.00">
+              <div class="food-image food-five"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Ensalada Mediterránea</h3>
+                  <span>$12.00</span>
+                </div>
+                <p>Lechuga romana, queso feta, aceitunas negras y aderezo limón.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+
+            <article class="food-card" data-name="Postre de Chocolate" data-price="9.00">
+              <div class="food-image food-six"></div>
+              <div class="food-content">
+                <div class="food-head">
+                  <h3>Postre de Chocolate</h3>
+                  <span>$9.00</span>
+                </div>
+                <p>Brownie con salsa de cacao, nueces y crema suave.</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="history" class="story section-spacing">
+        <div class="container story-layout">
+          <div class="story-image">
+            <div class="story-photo"></div>
+          </div>
+
+          <div class="story-copy">
+            <p class="eyebrow">Nuestra historia</p>
+            <h2>Un restaurante nacido de la tradición y la comunidad.</h2>
+            <p>
+              El Patio Verde comenzó hace más de una década como un pequeño espacio familiar
+              donde la cocina casera y el calor humano eran lo más importante. Con el tiempo,
+              nuestra propuesta evolucionó manteniendo siempre el mismo espíritu: comida de
+              calidad, atención cercana y una experiencia memorable.
+            </p>
+            <p>
+              Hoy continuamos celebrando recetas transmitidas por generaciones, utilizando
+              productos frescos y un enfoque responsable con la comunidad local.
+            </p>
+            <div class="story-highlights">
+              <div>
+                <strong>12+</strong>
+                <span>Años de tradición</span>
+              </div>
+              <div>
+                <strong>8000+</strong>
+                <span>Clientes atendidos</span>
+              </div>
+              <div>
+                <strong>18</strong>
+                <span>Especialidades</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="location section-spacing">
+        <div class="container location-layout">
+          <div class="location-copy">
+            <p class="eyebrow">Ubicación</p>
+            <h2>Ven a visitarnos</h2>
+            <p>
+              Calle del Vivero 258, Centro Histórico.<br />
+              Abierto de martes a domingo, de 12:00 a 23:30 hrs.
+            </p>
+            <ul>
+              <li>📍 Cerca del parque principal</li>
+              <li>🚗 Estacionamiento disponible</li>
+              <li>📞 +52 55 1234 5678</li>
+            </ul>
+          </div>
+
+          <div class="map-card" aria-label="Mapa del restaurante">
+            <div class="map-pin">📍</div>
+            <div class="map-labels">
+              <span>El Patio Verde</span>
+              <small>Centro Histórico</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews section-spacing">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Reseñas</p>
+            <h2>Lo que dicen nuestros clientes</h2>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “La atención fue impecable y la comida estaba deliciosa. El ambiente es muy
+                tranquilo y perfecto para una tarde con amigos.”
+              </p>
+              <div class="review-author">
+                <strong>María G.</strong>
+                <span>Cliente frecuente</span>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>
+                “El ceviche y la paella superaron mis expectativas. Volvería sin duda por la
+                calidad y la presentación.”
+              </p>
+              <div class="review-author">
+                <strong>Diego R.</strong>
+                <span>Reseña de Google</span>
+              </div>
+            </article>
+
+            <article class="review-card">
+              <div class="stars">★★★★☆</div>
+              <p>
+                “Muy buena experiencia general, con un servicio amable y platos bien preparados.
+                Ideal para una cita o reunión casual.”
+              </p>
+              <div class="review-author">
+                <strong>Sofía T.</strong>
+                <span>Visitante</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery section-spacing">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Galería</p>
+            <h2>Momentos de sabor</h2>
+          </div>
+
+          <div class="gallery-grid" aria-label="Galería de fotos del restaurante">
+            <figure class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
+                alt="Plato servido en restaurante"
+              />
+            </figure>
+            <figure class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
+                alt="Mesa lista con comida fresca"
+              />
+            </figure>
+            <figure class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80"
+                alt="Grupo disfrutando de una comida"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="events section-spacing">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Eventos</p>
+            <h2>Próximas actividades</h2>
+          </div>
+
+          <div class="events-calendar">
+            <article class="event-card">
+              <div class="event-date">
+                <span>15</span>
+                <small>Sep</small>
+              </div>
+              <div class="event-info">
+                <h3>Noches de música en vivo</h3>
+                <p>Una velada con artistas locales y platos recomendados.</p>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-date">
+                <span>28</span>
+                <small>Sep</small>
+              </div>
+              <div class="event-info">
+                <h3>Festival de sabores</h3>
+                <p>Degustación especial con ingredientes de temporada.</p>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-date">
+                <span>07</span>
+                <small>Oct</small>
+              </div>
+              <div class="event-info">
+                <h3>Tarde familiar</h3>
+                <p>Actividades para niños, juegos y menú especial para grupos.</p>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-date">
+                <span>14</span>
+                <small>Oct</small>
+              </div>
+              <div class="event-info">
+                <h3>Vino y cocina</h3>
+                <p>Cata de vinos acompañada de platos seleccionados por el chef.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="cart" class="cart-panel" aria-label="Carrito de compras">
+      <div class="cart-header">
+        <h3>Tu carrito</h3>
+      </div>
+
+      <div id="cart-items" class="cart-items">
+        <div class="cart-item">
+          <div>
+            <h4>Ceviche Verde</h4>
+            <p>1 x $18.00</p>
+          </div>
+          <span>$18.00</span>
+        </div>
+        <div class="cart-item">
+          <div>
+            <h4>Paella de Mariscos</h4>
+            <p>1 x $23.50</p>
+          </div>
+          <span>$23.50</span>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">$41.50</strong>
+        </div>
+        <button class="btn btn-primary full-width">Finalizar pedido</button>
+      </div>
+    </aside>
+
+    <footer id="contact" class="footer">
+      <div class="container footer-layout">
+        <div>
+          <div class="brand footer-brand">
+            <div class="brand-mark">EP</div>
+            <div>
+              <p class="brand-name">El Patio Verde</p>
+              <span class="brand-tag">Sabor casero</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li>📍 Calle del Vivero 258</li>
+            <li>📞 +52 55 1234 5678</li>
+            <li>✉️ hola@elpatioverde.com</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Horario</h4>
+          <ul>
+            <li>Lun - Vie: 12:00 - 23:30</li>
+            <li>Sáb - Dom: 11:00 - 00:00</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
