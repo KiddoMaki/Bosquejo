@@ -112,13 +112,18 @@ p {
   gap: 0.8rem;
 }
 
-.brand-logo {
-  width: 62px;
-  height: 62px;
+.brand-mark {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  object-fit: cover;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--gold), var(--red-soft));
+  color: var(--bg);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
   box-shadow: 0 10px 30px rgba(214, 172, 92, 0.3);
-  border: 2px solid rgba(214, 172, 92, 0.45);
 }
 
 .brand-name {
@@ -211,13 +216,15 @@ p {
   padding: 4rem 0;
 }
 
-.hero-logo-image {
-  display: block;
-  width: min(420px, 70vw);
+.hero-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.8rem, 8vw, 8rem);
+  font-weight: 700;
+  color: var(--gold-soft);
+  line-height: 0.9;
   margin-bottom: 1rem;
-  border-radius: 50%;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-  border: 3px solid rgba(214, 172, 92, 0.45);
+  letter-spacing: 0.02em;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .lead {
