@@ -168,6 +168,74 @@ p {
   text-transform: uppercase;
 }
 
+.nav-menu {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 3rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(214, 172, 92, 0.3);
+  border-radius: 999px;
+  color: var(--gold-soft);
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  width: 1.35rem;
+  height: 2px;
+  display: block;
+  background: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.nav-toggle-icon {
+  position: relative;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  position: absolute;
+  content: "";
+}
+
+.nav-toggle-icon::before {
+  transform: translateY(-0.4rem);
+}
+
+.nav-toggle-icon::after {
+  transform: translateY(0.4rem);
+}
+
+.nav-menu[open] .nav-toggle-icon {
+  background: transparent;
+}
+
+.nav-menu[open] .nav-toggle-icon::before {
+  transform: rotate(45deg);
+}
+
+.nav-menu[open] .nav-toggle-icon::after {
+  transform: rotate(-45deg);
+}
+
+.nav-panel {
+  display: grid;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+}
+
 .nav-links {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -553,7 +621,6 @@ p {
   }
 
   .nav-links {
-    order: 3;
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
@@ -582,6 +649,21 @@ p {
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 0;
+  }
+
+  .nav-menu {
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-panel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding-top: 0;
   }
 
   .nav-links {

@@ -43,12 +43,13 @@ La página está organizada en las secciones `hero`, `essence`, `menu`, `reserva
 
 En la primera versión, los elementos de navegación se comprimían y podían quedar visualmente centrados de forma incorrecta en pantallas pequeñas. Esto afectaba el acceso a las secciones principales y hacía que el encabezado ocupara más espacio del necesario.
 
-**Causa identificada:** la distribución horizontal del encabezado no tenía una reorganización suficientemente controlada para anchos reducidos.
+**Causa identificada:** la distribución horizontal del encabezado no tenía una interacción específica para anchos reducidos.
 
 **Corrección aplicada:**
 
-- se creó un layout vertical para el encabezado móvil;
-- los enlaces se organizaron en una cuadrícula de dos columnas;
+- se incorporó un menú hamburguesa nativo mediante `<details>` y `<summary>`;
+- el panel de enlaces permanece cerrado por defecto en móvil y se abre sin JavaScript;
+- el control es operable con teclado y cambia a un icono de cierre al abrirse;
 - el botón de reserva ocupa el ancho disponible;
 - la marca y el logotipo se mantienen centrados;
 - los controles conservan dimensiones estables para evitar saltos visuales.
@@ -81,7 +82,7 @@ La página cuenta con breakpoints para reorganizar los bloques principales. En p
 
 - base mobile-first con `grid-template-columns: 1fr` y ampliación progresiva mediante `min-width: 768px` y `min-width: 1024px`;
 - uso de CSS Grid para la macroestructura global y Flexbox para la alineación interna;
-- botones de ancho completo en móvil;
+- menú hamburguesa y botones de ancho completo en móvil;
 - formulario dividido en una sola columna cuando el espacio es limitado;
 - galería adaptada para evitar desbordamientos;
 - variables CSS para colores, tipografías y espaciados;
