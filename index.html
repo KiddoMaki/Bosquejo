@@ -265,8 +265,16 @@
 
     <script>
       const header = document.querySelector('.header');
+      const navMenu = document.querySelector('.nav-menu');
       const essenceSection = document.getElementById('essence');
       const mobileLayout = window.matchMedia('(max-width: 640px)');
+      const desktopLayout = window.matchMedia('(min-width: 1024px)');
+
+      const updateNavigationMode = () => {
+        if (!navMenu) return;
+
+        navMenu.open = desktopLayout.matches;
+      };
 
       const updateHeaderState = () => {
         if (!header || !essenceSection) return;
@@ -292,8 +300,10 @@
       };
 
       updateHeaderState();
+      updateNavigationMode();
       window.addEventListener('scroll', updateHeaderState, { passive: true });
       window.addEventListener('resize', updateHeaderState);
+      window.addEventListener('resize', updateNavigationMode);
       mobileLayout.addEventListener('change', updateHeaderState);
     </script>
   </body>
