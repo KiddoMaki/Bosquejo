@@ -92,13 +92,13 @@ La página cuenta con breakpoints para reorganizar los bloques principales. En p
 ### 4.4. Orientación horizontal en dispositivos móviles
 
 **Severidad:** Media
-**Estado:** Pendiente de ajuste
+**Estado:** Corregido
 
-Al girar un teléfono a orientación horizontal, el encabezado no se oculta al desplazarse como ocurre en orientación vertical. El problema se produce porque el script inline decide si está en modo móvil únicamente mediante `max-width: 640px`; al aumentar el ancho disponible por la rotación, esa condición puede dejar de cumplirse aunque el dispositivo siga siendo un teléfono.
+Al girar un teléfono a orientación horizontal, el encabezado no se ocultaba al desplazarse como ocurría en orientación vertical. El problema se producía porque el script inline decidía si estaba en modo móvil únicamente mediante `max-width: 640px`; al aumentar el ancho disponible por la rotación, esa condición dejaba de cumplirse aunque el dispositivo siguiera siendo un teléfono.
 
-**Impacto:** el comportamiento del encabezado cambia según la orientación del dispositivo y la navegación puede ocupar espacio adicional en la parte superior durante el desplazamiento horizontal.
+**Corrección aplicada:** el comportamiento compacto ahora se mantiene hasta `max-width: 1023px`, mientras que la navegación normal de escritorio comienza en `min-width: 1024px`. De esta manera, la orientación horizontal de un teléfono conserva el comportamiento móvil sin modificar el diseño vertical.
 
-**Recomendación:** sustituir la detección exclusiva por ancho por una condición que también contemple la orientación (`orientation: portrait` / `orientation: landscape`) o utilizar un breakpoint móvil más amplio. Después debe repetirse la prueba de scroll en ambas orientaciones y comprobar que el menú hamburguesa siga siendo accesible.
+**Validación recomendada:** repetir la prueba de scroll en ambas orientaciones y comprobar que el menú hamburguesa siga siendo accesible.
 
 ### 4.5. Jerarquía de marca y contenido
 
@@ -162,7 +162,7 @@ La página utiliza imágenes alojadas en Unsplash y fuentes de Google Fonts. Est
 | Verificación de layout mobile-first | Base de una columna en `styles.css` |
 | Verificación de breakpoints | `min-width: 768px` para tablet y `min-width: 1024px` para desktop |
 | Verificación de accesibilidad CSS | Consultas de tema oscuro y movimiento reducido implementadas |
-| Verificación de orientación horizontal | Limitación identificada: el script actual depende de `max-width: 640px` |
+| Verificación de orientación horizontal | Corregida mediante el umbral compacto `max-width: 1023px` |
 | Publicación en GitHub | Pendiente hasta validar y publicar este estado |
 
 ## 6. Riesgos y pendientes
@@ -171,7 +171,7 @@ Antes de utilizar el sitio como página de producción, se recomienda atender es
 
 1. probar la interfaz en teléfonos reales y en diferentes navegadores;
 2. decidir si el ocultamiento dinámico de la navbar debe mantenerse con JavaScript o dejarse fija;
-3. corregir y validar el comportamiento del encabezado al girar el teléfono a orientación horizontal;
+3. validar en dispositivos físicos el comportamiento del encabezado en ambas orientaciones;
 4. conectar el formulario a un sistema real de reservas;
 5. agregar validación, mensajes de estado y campos obligatorios;
 6. optimizar imágenes y recursos externos;
