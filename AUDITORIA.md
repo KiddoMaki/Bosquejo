@@ -98,6 +98,8 @@ Al girar un teléfono a orientación horizontal, el encabezado no se ocultaba al
 
 **Corrección aplicada:** el comportamiento compacto ahora se mantiene hasta `max-width: 1023px`, mientras que la navegación normal de escritorio comienza en `min-width: 1024px`. De esta manera, la orientación horizontal de un teléfono conserva el comportamiento móvil sin modificar el diseño vertical.
 
+Además, en orientación horizontal y por debajo de `1024px`, el encabezado deja de ser `sticky` y vuelve al flujo normal del documento. Esto evita que la barra de navegación quede superpuesta sobre las tarjetas o el contenido cuando la altura visible del teléfono se reduce.
+
 **Validación recomendada:** repetir la prueba de scroll en ambas orientaciones y comprobar que el menú hamburguesa siga siendo accesible.
 
 ### 4.5. Jerarquía de marca y contenido
@@ -162,7 +164,7 @@ La página utiliza imágenes alojadas en Unsplash y fuentes de Google Fonts. Est
 | Verificación de layout mobile-first | Base de una columna en `styles.css` |
 | Verificación de breakpoints | `min-width: 768px` para tablet y `min-width: 1024px` para desktop |
 | Verificación de accesibilidad CSS | Consultas de tema oscuro y movimiento reducido implementadas |
-| Verificación de orientación horizontal | Corregida mediante el umbral compacto `max-width: 1023px` |
+| Verificación de orientación horizontal | Corregida mediante `max-width: 1023px` y header en flujo normal |
 | Publicación en GitHub | Pendiente hasta validar y publicar este estado |
 
 ## 6. Riesgos y pendientes

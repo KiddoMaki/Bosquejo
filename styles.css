@@ -718,6 +718,13 @@ p {
   }
 }
 
+/* En movil horizontal el header ocupa el flujo para no cubrir el contenido. */
+@media (orientation: landscape) and (max-width: 1023px) {
+  .header {
+    position: relative;
+  }
+}
+
 /* El script puede añadir estos estados, pero el layout base no depende de JS. */
 .header.is-shrunk {
   background: rgba(11, 11, 13, 0.88);
