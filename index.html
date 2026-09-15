@@ -41,40 +41,6 @@
     </header>
 
     <main>
-
-    <script>
-      const header = document.querySelector('.header');
-      const essenceSection = document.getElementById('essence');
-      const mobileLayout = window.matchMedia('(max-width: 640px)');
-
-      const updateHeaderState = () => {
-        if (!header || !essenceSection) return;
-
-        if (!mobileLayout.matches) {
-          header.classList.remove('is-shrunk', 'is-hidden');
-          return;
-        }
-
-        const triggerShrink = essenceSection.offsetTop - 150;
-        const triggerHide = essenceSection.offsetTop - 30;
-
-        if (window.scrollY >= triggerHide) {
-          header.classList.add('is-hidden');
-          header.classList.remove('is-shrunk');
-        } else if (window.scrollY >= triggerShrink) {
-          header.classList.add('is-shrunk');
-          header.classList.remove('is-hidden');
-        } else {
-          header.classList.remove('is-shrunk');
-          header.classList.remove('is-hidden');
-        }
-      };
-
-      updateHeaderState();
-      window.addEventListener('scroll', updateHeaderState, { passive: true });
-      window.addEventListener('resize', updateHeaderState);
-      mobileLayout.addEventListener('change', updateHeaderState);
-    </script>
       <section class="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -287,5 +253,39 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const header = document.querySelector('.header');
+      const essenceSection = document.getElementById('essence');
+      const mobileLayout = window.matchMedia('(max-width: 640px)');
+
+      const updateHeaderState = () => {
+        if (!header || !essenceSection) return;
+
+        if (!mobileLayout.matches) {
+          header.classList.remove('is-shrunk', 'is-hidden');
+          return;
+        }
+
+        const triggerShrink = essenceSection.offsetTop - 150;
+        const triggerHide = essenceSection.offsetTop - 30;
+
+        if (window.scrollY >= triggerHide) {
+          header.classList.add('is-hidden');
+          header.classList.remove('is-shrunk');
+        } else if (window.scrollY >= triggerShrink) {
+          header.classList.add('is-shrunk');
+          header.classList.remove('is-hidden');
+        } else {
+          header.classList.remove('is-shrunk');
+          header.classList.remove('is-hidden');
+        }
+      };
+
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+      window.addEventListener('resize', updateHeaderState);
+      mobileLayout.addEventListener('change', updateHeaderState);
+    </script>
   </body>
 </html>
