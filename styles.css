@@ -534,33 +534,56 @@ p {
 }
 
 @media (max-width: 640px) {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+
   .nav {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.9rem;
+    gap: 0.8rem;
     padding: 1rem 0;
   }
 
   .brand {
     width: 100%;
     justify-content: center;
+    text-align: center;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-tag {
+    letter-spacing: 0.08rem;
   }
 
   .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
+    gap: 0.5rem;
     order: 3;
   }
 
   .nav-links a {
     width: 100%;
     text-align: center;
+    padding: 0.45rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(214, 172, 92, 0.15);
   }
 
   .nav-actions {
+    width: 100%;
+  }
+
+  .nav-actions .btn {
     width: 100%;
   }
 
@@ -570,6 +593,10 @@ p {
 
   .hero {
     min-height: 620px;
+  }
+
+  .hero-content {
+    text-align: center;
   }
 
   .hero-actions {
