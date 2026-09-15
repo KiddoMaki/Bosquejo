@@ -534,6 +534,36 @@ p {
 }
 
 @media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1rem 0;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    order: 3;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-actions {
+    width: 100%;
+  }
+
   .section {
     padding: 4rem 0;
   }
