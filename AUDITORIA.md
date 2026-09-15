@@ -89,7 +89,18 @@ La página cuenta con breakpoints para reorganizar los bloques principales. En p
 - soporte para `prefers-color-scheme: dark` y `prefers-reduced-motion: reduce`;
 - navegación con ancho controlado para evitar que se salga de la pantalla.
 
-### 4.4. Jerarquía de marca y contenido
+### 4.4. Orientación horizontal en dispositivos móviles
+
+**Severidad:** Media
+**Estado:** Pendiente de ajuste
+
+Al girar un teléfono a orientación horizontal, el encabezado no se oculta al desplazarse como ocurre en orientación vertical. El problema se produce porque el script inline decide si está en modo móvil únicamente mediante `max-width: 640px`; al aumentar el ancho disponible por la rotación, esa condición puede dejar de cumplirse aunque el dispositivo siga siendo un teléfono.
+
+**Impacto:** el comportamiento del encabezado cambia según la orientación del dispositivo y la navegación puede ocupar espacio adicional en la parte superior durante el desplazamiento horizontal.
+
+**Recomendación:** sustituir la detección exclusiva por ancho por una condición que también contemple la orientación (`orientation: portrait` / `orientation: landscape`) o utilizar un breakpoint móvil más amplio. Después debe repetirse la prueba de scroll en ambas orientaciones y comprobar que el menú hamburguesa siga siendo accesible.
+
+### 4.5. Jerarquía de marca y contenido
 
 **Severidad:** Media
 **Estado:** Corregido
@@ -98,7 +109,7 @@ El nombre del restaurante se conserva como el `h1` principal dentro del hero. El
 
 Esta separación mejora la jerarquía semántica: el `h1` comunica el nombre del sitio a usuarios y motores de búsqueda, mientras que la imagen funciona como elemento de identidad visual.
 
-### 4.5. Estructura semántica y accesibilidad básica
+### 4.6. Estructura semántica y accesibilidad básica
 
 **Severidad:** Baja
 **Estado:** Parcialmente implementado
@@ -113,7 +124,7 @@ La página utiliza elementos semánticos apropiados como `header`, `nav`, `main`
 - debe comprobarse el contraste final con una herramienta automática de accesibilidad;
 - conviene probar navegación completa mediante teclado.
 
-### 4.6. Formulario de reservas
+### 4.7. Formulario de reservas
 
 **Severidad:** Media
 **Estado:** Bosquejo visual
@@ -128,7 +139,7 @@ El formulario contiene nombre, fecha, hora y número de personas, por lo que cub
 - no se muestra un resultado después del envío;
 - los datos no se almacenan ni se envían a un destinatario real.
 
-### 4.7. Rendimiento y recursos externos
+### 4.8. Rendimiento y recursos externos
 
 **Severidad:** Media
 **Estado:** Pendiente de optimización
@@ -151,6 +162,7 @@ La página utiliza imágenes alojadas en Unsplash y fuentes de Google Fonts. Est
 | Verificación de layout mobile-first | Base de una columna en `styles.css` |
 | Verificación de breakpoints | `min-width: 768px` para tablet y `min-width: 1024px` para desktop |
 | Verificación de accesibilidad CSS | Consultas de tema oscuro y movimiento reducido implementadas |
+| Verificación de orientación horizontal | Limitación identificada: el script actual depende de `max-width: 640px` |
 | Publicación en GitHub | Pendiente hasta validar y publicar este estado |
 
 ## 6. Riesgos y pendientes
@@ -159,10 +171,11 @@ Antes de utilizar el sitio como página de producción, se recomienda atender es
 
 1. probar la interfaz en teléfonos reales y en diferentes navegadores;
 2. decidir si el ocultamiento dinámico de la navbar debe mantenerse con JavaScript o dejarse fija;
-3. conectar el formulario a un sistema real de reservas;
-4. agregar validación, mensajes de estado y campos obligatorios;
-5. optimizar imágenes y recursos externos;
-6. ejecutar una revisión de accesibilidad con Lighthouse, axe o una herramienta equivalente.
+3. corregir y validar el comportamiento del encabezado al girar el teléfono a orientación horizontal;
+4. conectar el formulario a un sistema real de reservas;
+5. agregar validación, mensajes de estado y campos obligatorios;
+6. optimizar imágenes y recursos externos;
+7. ejecutar una revisión de accesibilidad con Lighthouse, axe o una herramienta equivalente.
 
 ## 7. Conclusión
 
