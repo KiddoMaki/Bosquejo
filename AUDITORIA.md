@@ -15,10 +15,10 @@ La revisión se realizó mediante:
 
 - inspección de la estructura semántica en `index.html`;
 - revisión de estilos, breakpoints y distribución en `styles.css`;
-- comprobación del comportamiento de la navegación en pantallas pequeñas;
+- comprobación del comportamiento de la navegación en pantallas pequeñas y medianas;
 - verificación de la carga del documento mediante un servidor HTTP local;
 - validación de cambios con `git diff --check`;
-- comprobación de la publicación en la rama `main` del repositorio remoto.
+- comprobación del estado de la rama `main` y su sincronización con el repositorio remoto.
 
 La auditoría se centra en el estado actual del bosquejo. No sustituye una prueba completa en navegadores físicos, lectores de pantalla ni dispositivos reales.
 
@@ -56,19 +56,19 @@ En la primera versión, los elementos de navegación se comprimían y podían qu
 ### 4.2. Comportamiento del encabezado al desplazarse
 
 **Severidad:** Media
-**Estado:** Implementado únicamente para móvil
+**Estado:** Implementado como mejora opcional para móvil
 
 El encabezado fijo resultaba demasiado invasivo al recorrer el contenido en un teléfono. Se solicitó que el encabezado se redujera o desapareciera al llegar a la sección “Nuestra esencia” y volviera a estar disponible al regresar hacia la parte superior.
 
 **Implementación actual:**
 
-- el comportamiento se activa mediante el breakpoint `max-width: 640px`;
+- el comportamiento se activa mediante el breakpoint `max-width: 640px` del script inline;
 - antes de entrar completamente en la sección, el encabezado puede reducir su altura;
 - al continuar el desplazamiento, se oculta mediante una transformación CSS;
 - en pantallas superiores a 640px se eliminan los estados móviles y la navegación permanece normal;
 - el estado se calcula tomando como referencia la posición de la sección `#essence`.
 
-**Observación técnica:** este comportamiento depende de JavaScript para detectar el desplazamiento. Si el requisito definitivo del proyecto es funcionar sin JavaScript, debe sustituirse por una solución exclusivamente CSS o dejar el encabezado fijo sin ocultamiento dinámico.
+**Observación técnica:** el layout responsive y la navegación siguen funcionando sin JavaScript. El ocultamiento dinámico del encabezado es una mejora opcional que sí depende del script inline; el archivo independiente `script.js` no se utiliza y fue eliminado para evitar duplicidad.
 
 ### 4.3. Diseño responsive general
 
@@ -79,11 +79,13 @@ La página cuenta con breakpoints para reorganizar los bloques principales. En p
 
 **Medidas aplicadas:**
 
-- uso de `grid-template-columns` para pasar de varias columnas a una;
+- base mobile-first con `grid-template-columns: 1fr` y ampliación progresiva mediante `min-width: 768px` y `min-width: 1024px`;
+- uso de CSS Grid para la macroestructura global y Flexbox para la alineación interna;
 - botones de ancho completo en móvil;
 - formulario dividido en una sola columna cuando el espacio es limitado;
 - galería adaptada para evitar desbordamientos;
-- padding reducido en las secciones móviles;
+- variables CSS para colores, tipografías y espaciados;
+- soporte para `prefers-color-scheme: dark` y `prefers-reduced-motion: reduce`;
 - navegación con ancho controlado para evitar que se salga de la pantalla.
 
 ### 4.4. Jerarquía de marca y contenido
@@ -145,16 +147,17 @@ La página utiliza imágenes alojadas en Unsplash y fuentes de Google Fonts. Est
 |---|---|
 | Servidor HTTP local | Exitosa; el documento respondió con HTTP 200 |
 | Validación de espacios y errores básicos del diff | Exitosa mediante `git diff --check` |
-| Verificación de breakpoint móvil | Implementada en `styles.css` para `max-width: 640px` |
-| Verificación de estado desktop | El comportamiento móvil se limpia cuando la ventana supera 640px |
-| Publicación en GitHub | Exitosa en la rama `main` |
+| Verificación de layout mobile-first | Base de una columna en `styles.css` |
+| Verificación de breakpoints | `min-width: 768px` para tablet y `min-width: 1024px` para desktop |
+| Verificación de accesibilidad CSS | Consultas de tema oscuro y movimiento reducido implementadas |
+| Publicación en GitHub | Pendiente hasta validar y publicar este estado |
 
 ## 6. Riesgos y pendientes
 
 Antes de utilizar el sitio como página de producción, se recomienda atender estos puntos:
 
 1. probar la interfaz en teléfonos reales y en diferentes navegadores;
-2. decidir si el comportamiento de la navbar puede utilizar JavaScript o debe ser exclusivamente CSS;
+2. decidir si el ocultamiento dinámico de la navbar debe mantenerse con JavaScript o dejarse fija;
 3. conectar el formulario a un sistema real de reservas;
 4. agregar validación, mensajes de estado y campos obligatorios;
 5. optimizar imágenes y recursos externos;

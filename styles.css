@@ -1,3 +1,9 @@
+/* Modelo de caja predecible para todos los elementos. */
+* {
+  box-sizing: border-box;
+}
+
+/* Tokens compartidos: color, tipografia y ritmo de espaciado. */
 :root {
   --bg: #0b0b0d;
   --bg-soft: #111214;
@@ -11,10 +17,14 @@
   --red-soft: #a63737;
   --line: rgba(214, 172, 92, 0.3);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-}
-
-* {
-  box-sizing: border-box;
+  --font-body: "Inter", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-section: clamp(4rem, 10vw, 6rem);
 }
 
 html {
@@ -23,7 +33,11 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  min-width: 18rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -31,6 +45,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -51,7 +66,7 @@ select {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: var(--space-section) 0;
 }
 
 .eyebrow {
@@ -68,7 +83,7 @@ h2,
 h3,
 h4 {
   margin-top: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.05;
 }
@@ -100,11 +115,13 @@ p {
 }
 
 .nav {
-  min-height: 86px;
+  min-height: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
 }
 
 .brand {
@@ -130,7 +147,7 @@ p {
   place-items: center;
   background: linear-gradient(135deg, var(--gold), var(--red-soft));
   color: var(--bg);
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
   box-shadow: 0 10px 30px rgba(214, 172, 92, 0.3);
@@ -152,15 +169,23 @@ p {
 }
 
 .nav-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-xs);
   color: var(--muted);
   font-size: 0.95rem;
   font-weight: 600;
 }
 
 .nav-links a {
+  width: 100%;
+  padding: 0.45rem 0.5rem;
+  text-align: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(214, 172, 92, 0.15);
   transition: color 0.2s ease;
 }
 
@@ -199,9 +224,17 @@ p {
   color: var(--gold-soft);
 }
 
+.nav-actions {
+  width: 100%;
+}
+
+.nav-actions .btn {
+  width: 100%;
+}
+
 .hero {
   position: relative;
-  min-height: 760px;
+  min-height: min(42rem, 85vh);
   display: flex;
   align-items: center;
   background-image:
@@ -227,7 +260,7 @@ p {
 }
 
 .hero-logo {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-size: clamp(3.8rem, 8vw, 8rem);
   font-weight: 700;
   color: var(--gold-soft);
@@ -250,6 +283,10 @@ p {
   margin-top: 2rem;
 }
 
+.hero-actions .btn {
+  width: 100%;
+}
+
 .section-head {
   margin-bottom: 2rem;
 }
@@ -264,8 +301,8 @@ p {
 
 .essence-layout {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 2.2rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -275,8 +312,8 @@ p {
 
 .essence-points {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
   margin-top: 2rem;
 }
 
@@ -300,8 +337,8 @@ p {
 
 .essence-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
 }
 
 .gallery-item {
@@ -325,12 +362,11 @@ p {
 }
 
 .gallery-item.tall {
-  grid-row: span 2;
-  min-height: 500px;
+  min-height: 18rem;
 }
 
 .gallery-item.wide {
-  grid-column: span 2;
+  min-height: 18rem;
 }
 
 .menu {
@@ -341,8 +377,8 @@ p {
 
 .menu-layout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
 }
 
 .menu-card {
@@ -412,8 +448,8 @@ p {
 
 .reservations-layout {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -470,8 +506,8 @@ p {
 
 .form-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
 }
 
 .full-width {
@@ -486,8 +522,8 @@ p {
 
 .footer-layout {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
 }
 
 .footer h4 {
@@ -508,7 +544,8 @@ p {
   margin-top: 0.4rem;
 }
 
-@media (max-width: 980px) {
+/* Tablet: se amplia la composicion sin alterar la base movil. */
+@media (min-width: 768px) {
   .nav {
     flex-wrap: wrap;
     justify-content: center;
@@ -520,134 +557,118 @@ p {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .essence-layout,
-  .reservations-layout,
-  .footer-layout,
-  .menu-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .essence-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .header {
-    position: sticky;
-    top: 0;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-  }
-
-  .header.is-shrunk {
-    background: rgba(11, 11, 13, 0.88);
-    border-color: rgba(214, 172, 92, 0.18);
-  }
-
-  .header.is-hidden {
-    transform: translateY(-110%);
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 1rem 0;
-    transition: min-height 0.25s ease, padding 0.25s ease;
-  }
-
-  .header.is-shrunk .nav {
-    min-height: 64px;
-    padding: 0.55rem 0;
-  }
-
-  .header.is-shrunk .brand-logo {
-    width: 46px;
-    height: 46px;
-  }
-
-  .header.is-shrunk .brand-name {
-    font-size: 1rem;
-  }
-
-  .header.is-shrunk .brand-tag {
-    letter-spacing: 0.08rem;
-  }
-
-  .brand {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .brand-name {
-    font-size: 1rem;
-  }
-
-  .brand-tag {
-    letter-spacing: 0.08rem;
-  }
-
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-    gap: 0.5rem;
-    order: 3;
-  }
-
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 0.45rem 0.5rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(214, 172, 92, 0.15);
-  }
-
-  .nav-actions {
-    width: 100%;
-  }
-
-  .nav-actions .btn {
-    width: 100%;
-  }
-
-  .section {
-    padding: 4rem 0;
-  }
-
-  .hero {
-    min-height: 620px;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
   }
 
   .essence-points,
-  .form-row,
-  .essence-grid {
-    grid-template-columns: 1fr;
+  .essence-grid,
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .gallery-item.tall,
+  .hero-actions {
+    flex-direction: row;
+  }
+
+  .hero-actions .btn {
+    width: auto;
+  }
+}
+
+/* Desktop: Grid organiza las areas principales y Flexbox sus controles. */
+@media (min-width: 1024px) {
+  .nav {
+    min-height: 86px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    width: auto;
+    gap: var(--space-lg);
+  }
+
+  .nav-links a {
+    width: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .nav-actions,
+  .nav-actions .btn {
+    width: auto;
+  }
+
+  .essence-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .essence-points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .essence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-item.tall {
+    grid-row: span 2;
+    min-height: 31.25rem;
+  }
+
   .gallery-item.wide {
-    grid-column: auto;
-    grid-row: auto;
-    min-height: 260px;
+    grid-column: span 2;
+  }
+
+  .menu-layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .reservations-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+
+  .footer-layout {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+/* El script puede añadir estos estados, pero el layout base no depende de JS. */
+.header.is-shrunk {
+  background: rgba(11, 11, 13, 0.88);
+  border-color: rgba(214, 172, 92, 0.18);
+}
+
+.header.is-hidden {
+  transform: translateY(-110%);
+}
+
+/* Preferencia de alto contraste cromatico para sistemas en tema oscuro. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0d;
+    --bg-soft: #111214;
+    --panel: #17181a;
+    --panel-strong: #1f2124;
+    --text: #f5f0e8;
+    --muted: #d7d2cb;
+  }
+}
+
+/* Accesibilidad: elimina transiciones y desplazamiento suave si se solicita. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
