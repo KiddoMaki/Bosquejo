@@ -96,6 +96,7 @@ p {
   background: rgba(11, 11, 13, 0.7);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(214, 172, 92, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .nav {
@@ -537,6 +538,16 @@ p {
   .header {
     position: sticky;
     top: 0;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .header.is-shrunk {
+    background: rgba(11, 11, 13, 0.88);
+    border-color: rgba(214, 172, 92, 0.18);
+  }
+
+  .header.is-hidden {
+    transform: translateY(-110%);
   }
 
   .nav {
@@ -546,6 +557,25 @@ p {
     justify-content: center;
     gap: 0.8rem;
     padding: 1rem 0;
+    transition: min-height 0.25s ease, padding 0.25s ease;
+  }
+
+  .header.is-shrunk .nav {
+    min-height: 64px;
+    padding: 0.55rem 0;
+  }
+
+  .header.is-shrunk .brand-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .header.is-shrunk .brand-name {
+    font-size: 1rem;
+  }
+
+  .header.is-shrunk .brand-tag {
+    letter-spacing: 0.08rem;
   }
 
   .brand {
