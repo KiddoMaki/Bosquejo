@@ -534,10 +534,6 @@ p {
 }
 
 @media (max-width: 640px) {
-  .header.nav-hidden {
-    display: none;
-  }
-
   .nav {
     flex-direction: column;
     align-items: center;
