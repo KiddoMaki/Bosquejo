@@ -55,18 +55,6 @@
   line-height: 1;
 }
 
-.hero-brand {
-  display: block;
-  width: min(100%, 25rem);
-  margin-bottom: 1rem;
-}
-
-.hero-brand img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
-}
-
 .menu-page {
   min-height: 100vh;
   padding: 2rem 0 4rem;
