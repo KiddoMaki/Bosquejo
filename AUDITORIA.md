@@ -28,7 +28,7 @@ El proyecto utiliza una arquitectura de página única compuesta por:
 
 - `index.html`: contenido, estructura, navegación, formulario y referencias a imágenes;
 - `styles.css`: sistema visual, distribución, colores y reglas responsive;
-- `DFLOGO.png`: identidad gráfica utilizada en el encabezado y el pie de página;
+- `assets/DFLOGO.png`: identidad gráfica utilizada en el encabezado y el pie de página;
 - `AUDITORIA.md`: documentación de la revisión y de las correcciones aplicadas;
 - `README.md`: descripción general del proyecto.
 

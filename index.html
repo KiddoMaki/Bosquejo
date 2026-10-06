@@ -20,15 +20,15 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="module" src="js/app.js"></script>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning-subtle" aria-label="Navegación principal">
         <div class="container">
           <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" data-landing-link>
-            <img src="DFLOGO.png" width="52" height="52" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" />
+            <img src="assets/DFLOGO.png" width="52" height="52" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" />
             <span>
               <strong class="d-block">Domus Fuego</strong>
               <small class="text-warning">Parrilla • Steakhouse • BBQ</small>
@@ -41,6 +41,7 @@
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
               <li class="nav-item"><a class="nav-link" href="#essence" data-landing-link>Nuestra esencia</a></li>
               <li class="nav-item"><button class="nav-link menu-nav-button" type="button" id="menuNavButton" aria-controls="menuView" aria-expanded="false">Menú</button></li>
+              <li class="nav-item"><a class="nav-link" href="#cartPanel" data-open-menu>Carrito <span id="cartCount" aria-label="0 productos">0</span></a></li>
               <li class="nav-item"><a class="nav-link" href="#reservas" data-landing-link>Reservas</a></li>
               <li class="nav-item"><a class="nav-link" href="#contacto" data-landing-link>Contacto</a></li>
               <li class="nav-item"><a class="btn btn-danger rounded-pill px-4" href="#reservas" data-landing-link>Reservar mesa</a></li>
@@ -200,6 +201,39 @@
             <h1 id="menuTitle" tabindex="-1">Domus Fuego</h1>
             <p class="menu-subtitle">Para los amantes del fuego y la buena carne</p>
             <button type="button" class="btn btn-dark rounded-pill px-4 menu-back" data-close-menu>Volver al sitio</button>
+          </div>
+
+          <div class="store-layout">
+            <section class="catalog-panel" aria-labelledby="catalogTitle">
+              <div class="catalog-toolbar">
+                <div>
+                  <p class="eyebrow">Carta de la casa</p>
+                  <h2 id="catalogTitle">Elige algo del fuego</h2>
+                  <p id="catalogUpdated" class="catalog-updated" role="status">Cargando catálogo…</p>
+                </div>
+                <label class="filter-label" for="categoryFilter">Categoría
+                  <select id="categoryFilter" class="form-select">
+                    <option value="all">Todas</option>
+                  </select>
+                </label>
+              </div>
+              <p id="catalogMessage" class="catalog-message" role="status" aria-live="polite"></p>
+              <div id="productGrid" class="product-grid" aria-live="polite" aria-busy="true"></div>
+            </section>
+
+            <aside id="cartPanel" class="cart-panel" aria-labelledby="cartTitle">
+              <div class="cart-heading">
+                <h2 id="cartTitle">Tu pedido</h2>
+                <span id="cartItemCount" class="cart-item-count">0 artículos</span>
+              </div>
+              <ul id="cartItems" class="cart-items" aria-live="polite"></ul>
+              <p id="emptyCart" class="empty-cart">Tu carrito está vacío.</p>
+              <dl class="cart-totals">
+                <div><dt>Subtotal</dt><dd id="cartSubtotal">$0.00</dd></div>
+                <div class="cart-total"><dt>Total</dt><dd id="cartTotal">$0.00</dd></div>
+              </dl>
+              <button id="clearCart" class="btn btn-secondary full-width" type="button">Vaciar carrito</button>
+            </aside>
           </div>
 
           <div class="menu-columns">
@@ -371,7 +405,7 @@
       <div class="container row g-4 mx-auto">
         <div class="col-lg-4">
           <div class="d-flex align-items-center gap-2">
-            <img src="DFLOGO.png" width="62" height="62" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" loading="lazy" />
+            <img src="assets/DFLOGO.png" width="62" height="62" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" loading="lazy" />
             <div><strong class="d-block">Domus Fuego</strong><small class="text-warning">Parrilla • Steakhouse • BBQ</small></div>
           </div>
         </div>
@@ -390,6 +424,22 @@
             <li>Lun - Vie: 12:00 - 23:30</li>
             <li>Sáb - Dom: 13:00 - 00:30</li>
           </ul>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="h4">Escríbenos</h2>
+          <form id="contactForm" novalidate>
+            <label class="form-label" for="contactName">Nombre</label>
+            <input class="form-control mb-2" id="contactName" name="nombre" autocomplete="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+([ '-][A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*" aria-describedby="contactNameError" />
+            <small id="contactNameError" class="field-error" hidden>Escribe un nombre válido, usando letras y separadores comunes.</small>
+            <label class="form-label mt-3" for="contactEmail">Correo electrónico</label>
+            <input class="form-control mb-2" id="contactEmail" name="correo" type="email" autocomplete="email" required aria-describedby="contactEmailError" />
+            <small id="contactEmailError" class="field-error" hidden>Escribe un correo válido, por ejemplo nombre@dominio.com.</small>
+            <label class="form-label mt-3" for="contactMessage">Mensaje</label>
+            <textarea class="form-control mb-3" id="contactMessage" name="mensaje" rows="3" required minlength="10" aria-describedby="contactMessageError"></textarea>
+            <small id="contactMessageError" class="field-error" hidden>El mensaje debe tener al menos 10 caracteres.</small>
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+            <p id="contactFeedback" class="contact-feedback" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </footer>

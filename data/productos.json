@@ -1,0 +1,77 @@
+{
+  "updatedAt": "2026-10-06T12:00:00.000Z",
+  "products": [
+    {
+      "id": "picanha-250",
+      "name": "Picaña a la leña",
+      "category": "Cortes",
+      "description": "Picaña uruguaya de 250 g, ensalada fresca y papas a elección.",
+      "price": 18,
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Picaña asada a la parrilla con guarnición"
+    },
+    {
+      "id": "rib-eye-250",
+      "name": "Rib eye",
+      "category": "Cortes",
+      "description": "Corte uruguayo de 250 g, ensalada fresca y papas a elección.",
+      "price": 18,
+      "image": "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Rib eye sellado al fuego"
+    },
+    {
+      "id": "colita-cuadril",
+      "name": "Colita de cuadril",
+      "category": "Cortes",
+      "description": "Corte uruguayo de 250 g, ensalada fresca y papas a elección.",
+      "price": 17,
+      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Carne a la parrilla servida con vegetales"
+    },
+    {
+      "id": "parrillada-personal",
+      "name": "Parrillada personal",
+      "category": "Parrilla",
+      "description": "Pollo, chuleta de lomo, chorizo, morcilla, ensalada y papas.",
+      "price": 7,
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Selección de carnes variadas a la parrilla"
+    },
+    {
+      "id": "parrillada-dos",
+      "name": "Parrillada para dos",
+      "category": "Parrilla",
+      "description": "Pollo, lomo, carne, chorizo, morcilla, ensalada grande y papas.",
+      "price": 18,
+      "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Parrillada abundante para compartir"
+    },
+    {
+      "id": "burger-bacon",
+      "name": "Hamburguesa Bacon",
+      "category": "Hamburguesas",
+      "description": "Res, lechuga, tomate, queso holandés y bacon. Incluye papas fritas.",
+      "price": 6,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Hamburguesa con bacon, queso y vegetales"
+    },
+    {
+      "id": "alitas-bbq-6",
+      "name": "Alitas BBQ",
+      "category": "Para compartir",
+      "description": "Seis alitas con bastones de vegetales, salsa ranch y papas fritas.",
+      "price": 6.9,
+      "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Alitas de pollo glaseadas con salsa BBQ"
+    },
+    {
+      "id": "limonada-coco",
+      "name": "Limonada de coco",
+      "category": "Bebidas",
+      "description": "Limonada fresca preparada con coco.",
+      "price": 2.5,
+      "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80",
+      "imageAlt": "Bebida fría con limón y hojas frescas"
+    }
+  ]
+}
