@@ -15,6 +15,58 @@
   outline-offset: 3px;
 }
 
+.site-navbar {
+  background: linear-gradient(90deg, #7d1f1f 0%, #351414 24%, #0b0b0d 58%, #0b0b0d 100%) !important;
+  border-bottom-color: rgba(214, 172, 92, 0.3) !important;
+}
+
+.site-navbar .navbar-brand,
+.site-navbar .nav-link {
+  color: #f5f0e8;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible {
+  color: #f1d49a;
+}
+
+.site-navbar .cart-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 3.25rem;
+}
+
+.cart-nav-link .bi {
+  font-size: 1.2rem;
+}
+
+.cart-count {
+  display: inline-grid;
+  width: 1.4rem;
+  height: 1.4rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #a63737;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-brand {
+  display: block;
+  width: min(100%, 25rem);
+  margin-bottom: 1rem;
+}
+
+.hero-brand img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
 .menu-page {
   min-height: 100vh;
   padding: 2rem 0 4rem;

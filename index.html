@@ -20,12 +20,13 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script type="module" src="js/app.js"></script>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning-subtle" aria-label="Navegación principal">
+      <nav class="navbar site-navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning-subtle" aria-label="Navegación principal">
         <div class="container">
           <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" data-landing-link>
             <img src="assets/DFLOGO.png" width="52" height="52" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" />
@@ -41,10 +42,10 @@
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
               <li class="nav-item"><a class="nav-link" href="#essence" data-landing-link>Nuestra esencia</a></li>
               <li class="nav-item"><button class="nav-link menu-nav-button" type="button" id="menuNavButton" aria-controls="menuView" aria-expanded="false">Menú</button></li>
-              <li class="nav-item"><a class="nav-link" href="#cartPanel" data-open-menu>Carrito <span id="cartCount" aria-label="0 productos">0</span></a></li>
               <li class="nav-item"><a class="nav-link" href="#reservas" data-landing-link>Reservas</a></li>
               <li class="nav-item"><a class="nav-link" href="#contacto" data-landing-link>Contacto</a></li>
               <li class="nav-item"><a class="btn btn-danger rounded-pill px-4" href="#reservas" data-landing-link>Reservar mesa</a></li>
+              <li class="nav-item"><a class="nav-link cart-nav-link" href="#cartPanel" data-open-menu aria-label="Abrir carrito de compras" title="Carrito de compras"><i class="bi bi-cart3" aria-hidden="true"></i><span id="cartCount" class="cart-count" aria-label="0 productos" aria-live="polite">0</span></a></li>
             </ul>
           </div>
         </div>
@@ -56,7 +57,7 @@
         <section id="inicio" class="bg-dark text-light py-5">
           <div class="container py-5">
             <p class="text-warning text-uppercase fw-bold small">Cultura • Fuego • Sabor</p>
-            <h1 class="display-1 fw-bold">Domus Fuego</h1>
+            <h1 class="hero-brand"><img src="assets/DFLOGO.png" alt="Domus Fuego" /></h1>
             <p class="lead text-light">Nacido del fuego. Creado para el sabor.</p>
             <p class="lead text-light col-lg-8">
               El punto de encuentro donde dos culturas se fusionan a través del fuego.
@@ -133,7 +134,7 @@
           <div class="container py-5">
             <div class="text-center mb-5">
               <p class="text-warning text-uppercase fw-bold small">Menú</p>
-              <h2 class="display-5 fw-bold">Fire Grill Smoke</h2>
+              <h2 class="display-5 fw-bold">El fuego pone las reglas</h2>
               <p>Descubre nuestros platos, cortes a la parrilla y bebidas.</p>
               <button type="button" class="btn btn-outline-warning rounded-pill px-4" data-open-menu>Explorar menú completo</button>
             </div>
