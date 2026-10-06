@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Domus Fuego - restaurante premium de carnes con cocina a la leña y parrilla."
+      content="Domus Fuego: parrilla, cortes uruguayos, bebidas y reservas en Quito."
     />
-    <title>Domus Fuego | Restaurante Premium</title>
+    <title>Domus Fuego | Parrilla, Steakhouse &amp; BBQ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,28 +21,29 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning-subtle">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning-subtle" aria-label="Navegación principal">
         <div class="container">
-          <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio" data-landing-link>
             <img src="DFLOGO.png" width="52" height="52" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" />
             <span>
               <strong class="d-block">Domus Fuego</strong>
-              <small class="text-warning">Fire Grill Smoke</small>
+              <small class="text-warning">Parrilla • Steakhouse • BBQ</small>
             </span>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir menú">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir menú de navegación">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-              <li class="nav-item"><a class="nav-link" href="#essence">Nuestra esencia</a></li>
-              <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
-              <li class="nav-item"><a class="nav-link" href="#reservas">Reservas</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-              <li class="nav-item"><a class="btn btn-danger rounded-pill px-4" href="#reservas">Reservar Mesa</a></li>
+              <li class="nav-item"><a class="nav-link" href="#essence" data-landing-link>Nuestra esencia</a></li>
+              <li class="nav-item"><button class="nav-link menu-nav-button" type="button" id="menuNavButton" aria-controls="menuView" aria-expanded="false">Menú</button></li>
+              <li class="nav-item"><a class="nav-link" href="#reservas" data-landing-link>Reservas</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contacto" data-landing-link>Contacto</a></li>
+              <li class="nav-item"><a class="btn btn-danger rounded-pill px-4" href="#reservas" data-landing-link>Reservar mesa</a></li>
             </ul>
           </div>
         </div>
@@ -50,168 +51,318 @@
     </header>
 
     <main>
-      <section id="inicio" class="bg-dark text-light py-5">
-        <div class="container py-5">
-          <p class="text-warning text-uppercase fw-bold small">Cultura • Fuego • Sabor</p>
-          <h1 class="display-1 fw-bold">Domus Fuego</h1>
-          <p class="lead text-light">Nacido del Fuego. Creado para el Sabor.</p>
-          <p class="lead text-light col-lg-8">
-            El punto de encuentro donde dos culturas se fusionan a través del fuego.
-            Cortes premium, elegidos al detalle, llevados a la perfección por la parrilla.
-          </p>
-          <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
-            <a href="#reservas" class="btn btn-danger btn-lg rounded-pill px-4">Reservar Mesa</a>
-            <a href="#menu" class="btn btn-outline-warning btn-lg rounded-pill px-4">Ver Menú</a>
+      <div id="landingView">
+        <section id="inicio" class="bg-dark text-light py-5">
+          <div class="container py-5">
+            <p class="text-warning text-uppercase fw-bold small">Cultura • Fuego • Sabor</p>
+            <h1 class="display-1 fw-bold">Domus Fuego</h1>
+            <p class="lead text-light">Nacido del fuego. Creado para el sabor.</p>
+            <p class="lead text-light col-lg-8">
+              El punto de encuentro donde dos culturas se fusionan a través del fuego.
+              Cortes premium, elegidos al detalle, llevados a la perfección por la parrilla.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+              <a href="#reservas" data-landing-link class="btn btn-danger btn-lg rounded-pill px-4">Reservar mesa</a>
+              <button type="button" class="btn btn-outline-warning btn-lg rounded-pill px-4" data-open-menu>Ver menú</button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="essence" class="bg-black text-light py-5">
-        <div class="container py-5">
-          <div class="mb-5">
-            <p class="text-warning text-uppercase fw-bold small">Nuestra esencia</p>
-            <h2 class="display-5 fw-bold">Donde el fuego convierte cada corte en una experiencia.</h2>
+        <section id="essence" class="bg-black text-light py-5">
+          <div class="container py-5">
+            <div class="mb-5">
+              <p class="text-warning text-uppercase fw-bold small">Nuestra esencia</p>
+              <h2 class="display-5 fw-bold">Donde el fuego convierte cada corte en una experiencia.</h2>
+            </div>
+
+            <div class="row g-4 align-items-center">
+              <div class="col-lg-5">
+                <p class="text-light">
+                  En Domus Fuego, el fuego está en el corazón de todo lo que hacemos.
+                  Nuestra cocina celebra el arte atemporal de la cocina a la leña, donde
+                  los ingredientes de primera calidad se encuentran con el humo, la llama y
+                  un sabor audaz que despierta los sentidos.
+                </p>
+                <p class="text-light">
+                  Desde cortes argentinos cuidadosamente seleccionados hasta preparaciones
+                  que rinden homenaje a la tradición y la innovación, cada mesa se convierte
+                  en un encuentro de estilo, pasión y autenticidad.
+                </p>
+                <div class="row g-3 mt-4">
+                  <div class="col-md-4 col-lg-12 col-xl-4">
+                    <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
+                      <strong class="text-warning">Premium</strong>
+                      <span>Cortes cuidadosamente elegidos</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-12 col-xl-4">
+                    <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
+                      <strong class="text-warning">Leña</strong>
+                      <span>Sabor intenso y auténtico</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-12 col-xl-4">
+                    <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
+                      <strong class="text-warning">Fusión</strong>
+                      <span>Tradición y cultura en cada plato</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-7">
+                <div class="row g-3" role="group" aria-label="Galería de Domus Fuego">
+                  <div class="col-md-6">
+                    <img class="img-fluid rounded-4 h-100 object-fit-cover" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Corte de carne a la parrilla" loading="lazy" />
+                  </div>
+                  <div class="col-md-6 d-flex flex-column gap-3">
+                    <img class="img-fluid rounded-4 object-fit-cover" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Ingredientes frescos para parrilla" loading="lazy" />
+                    <img class="img-fluid rounded-4 object-fit-cover" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Bebida de autor en restaurante" loading="lazy" />
+                  </div>
+                  <div class="col-12">
+                    <img class="img-fluid rounded-4 w-100" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Comensales disfrutando una cena" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div class="row g-4 align-items-center">
-            <div class="col-lg-5">
+        <section id="menu" class="bg-dark text-light py-5">
+          <div class="container py-5">
+            <div class="text-center mb-5">
+              <p class="text-warning text-uppercase fw-bold small">Menú</p>
+              <h2 class="display-5 fw-bold">Fire Grill Smoke</h2>
+              <p>Descubre nuestros platos, cortes a la parrilla y bebidas.</p>
+              <button type="button" class="btn btn-outline-warning rounded-pill px-4" data-open-menu>Explorar menú completo</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="reservas" class="bg-black text-light py-5">
+          <div class="container py-5 row g-5 mx-auto align-items-center">
+            <div class="col-lg-6">
+              <p class="text-warning text-uppercase fw-bold small">Reservas</p>
+              <h2 class="display-5 fw-bold">Haz tu reserva y vive la experiencia Domus Fuego.</h2>
               <p class="text-light">
-                En Domus Fuego, el fuego está en el corazón de todo lo que hacemos.
-                Nuestra cocina celebra el arte atemporal de la cocina a la leña, donde
-                los ingredientes de primera calidad se encuentran con el humo, la llama y
-                un sabor audaz que despierta los sentidos.
-              </p>
-              <p class="text-light">
-                Desde cortes argentinos cuidadosamente seleccionados hasta preparaciones
-                que rinden homenaje a la tradición y la innovación, cada mesa se convierte
-                en un encuentro de estilo, pasión y autenticidad.
+                Te esperamos para una noche de fuego, sabor y estilo. Reserva con anticipación
+                y disfruta de los cortes más selectos con la mejor atención.
               </p>
               <div class="row g-3 mt-4">
-                <div class="col-md-4 col-lg-12 col-xl-4">
-                  <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
-                    <strong class="text-warning">Premium</strong>
-                    <span>Cortes cuidadosamente elegidos</span>
-                  </div>
-                </div>
-                <div class="col-md-4 col-lg-12 col-xl-4">
-                  <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
-                    <strong class="text-warning">Leña</strong>
-                    <span>Sabor intenso y auténtico</span>
-                  </div>
-                </div>
-                <div class="col-md-4 col-lg-12 col-xl-4">
-                  <div class="card h-100 bg-dark text-light border-warning-subtle p-3">
-                    <strong class="text-warning">Fusión</strong>
-                    <span>Tradición y cultura en cada plato</span>
-                  </div>
-                </div>
+                <div class="col-sm-6"><div class="card bg-dark text-light border-warning-subtle p-3">
+                  <strong class="display-6 text-warning">2+</strong>
+                  <span>salas premium</span>
+                </div></div>
+                <div class="col-sm-6"><div class="card bg-dark text-light border-warning-subtle p-3">
+                  <strong class="display-6 text-warning">7 días</strong>
+                  <span>de atención</span>
+                </div></div>
               </div>
             </div>
 
-            <div class="col-lg-7">
-              <div class="row g-3" aria-label="Galería de Domus Fuego">
-                <div class="col-md-6">
-                  <img class="img-fluid rounded-4 h-100 object-fit-cover" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Corte de carne a la parrilla" />
+            <form class="col-lg-6 reservation-form" id="reservationForm">
+              <div class="card bg-dark text-light border-warning p-4">
+                <h3 class="h4 mb-4">Solicita tu reserva</h3>
+                <label class="form-label" for="reservationName">Nombre del cliente</label>
+                <input class="form-control mb-3" id="reservationName" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="reservationDate">Fecha</label>
+                    <input class="form-control" id="reservationDate" type="date" name="fecha" required aria-describedby="dateHelp" />
+                    <small id="dateHelp" class="form-text text-light">Selecciona hoy o una fecha futura.</small>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="reservationTime">Hora</label>
+                    <input class="form-control" id="reservationTime" type="time" name="hora" required />
+                  </div>
                 </div>
-                <div class="col-md-6 d-flex flex-column gap-3">
-                  <img class="img-fluid rounded-4 object-fit-cover" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Ingredientes frescos para parrilla" />
-                  <img class="img-fluid rounded-4 object-fit-cover" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80" alt="Bebida de autor en restaurante" />
-                </div>
-                <div class="col-12">
-                  <img class="img-fluid rounded-4 w-100" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80" alt="Comensales disfrutando una cena premium" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="menu" class="bg-dark text-light py-5">
-        <div class="container py-5">
-          <div class="text-center mb-5">
-            <p class="text-warning text-uppercase fw-bold small">Menú</p>
-            <h2 class="display-5 fw-bold">Fire Grill Smoke</h2>
-          </div>
-
-          <div class="row g-4">
-            <article class="col-lg-4"><div class="card h-100 bg-black text-light border-secondary p-4">
-              <span class="badge text-bg-warning align-self-start mb-3">Parrilla</span>
-              <h3>Cocina a la Parrilla</h3>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Asado Argentino <strong class="text-warning">$32.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Chorizo al fuego <strong class="text-warning">$18.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Pollo a la leña <strong class="text-warning">$24.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Pimientos ahumados <strong class="text-warning">$16.00</strong></li>
-              </ul>
-            </div></article>
-
-            <article class="col-lg-4"><div class="card h-100 bg-danger bg-opacity-25 text-light border-warning p-4">
-              <span class="badge text-bg-warning align-self-start mb-3">Premium</span>
-              <h3>Cortes Premium</h3>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Filet Mignon <strong class="text-warning">$38.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Ribeye 300gr <strong class="text-warning">$44.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Tomahawk <strong class="text-warning">$58.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Carpaccio de res <strong class="text-warning">$20.00</strong></li>
-              </ul>
-            </div></article>
-
-            <article class="col-lg-4"><div class="card h-100 bg-black text-light border-secondary p-4">
-              <span class="badge text-bg-warning align-self-start mb-3">Bebidas</span>
-              <h3>Coctelería &amp; Vinos</h3>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Aperol Spritz <strong class="text-warning">$12.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Negroni clásico <strong class="text-warning">$15.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Vino Malbec <strong class="text-warning">$14.00</strong></li>
-                <li class="list-group-item bg-transparent text-light d-flex justify-content-between">Coctel de autor <strong class="text-warning">$17.00</strong></li>
-              </ul>
-            </div></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="reservas" class="bg-black text-light py-5">
-        <div class="container py-5 row g-5 mx-auto align-items-center">
-          <div class="col-lg-6">
-            <p class="text-warning text-uppercase fw-bold small">Reservas</p>
-            <h2 class="display-5 fw-bold">Haz tu reserva y vive la experiencia Domus Fuego.</h2>
-            <p class="text-light">
-              Te esperamos para una noche de fuego, sabor y estilo. Reserva con anticipación
-              y disfruta de los cortes más selectos con la mejor atención.
-            </p>
-            <div class="row g-3 mt-4">
-              <div class="col-sm-6"><div class="card bg-dark text-light border-warning-subtle p-3">
-                <strong class="display-6 text-warning">2+</strong>
-                <span>salas premium</span>
-              </div></div>
-              <div class="col-sm-6"><div class="card bg-dark text-light border-warning-subtle p-3">
-                <strong class="display-6 text-warning">7 días</strong>
-                <span>de atención</span>
-              </div></div>
-            </div>
-          </div>
-
-          <form class="col-lg-6" action="#" method="post">
-            <div class="card bg-dark text-light border-warning p-4">
-              <label class="form-label">Nombre del cliente
-                <input class="form-control mt-2" type="text" name="nombre" placeholder="Tu nombre" required />
-              </label>
-              <div class="row g-3">
-                <label class="col-md-6 form-label">Fecha
-                  <input class="form-control mt-2" type="date" name="fecha" required />
-                </label>
-                <label class="col-md-6 form-label">Hora
-                  <input class="form-control mt-2" type="time" name="hora" required />
-                </label>
-              </div>
-              <label class="form-label mt-3">Número de personas
-                <select class="form-select mt-2" name="personas">
-                  <option>2 personas</option><option>4 personas</option><option>6 personas</option><option>8 personas</option><option>10+ personas</option>
+                <label class="form-label mt-3" for="reservationGuests">Número de personas</label>
+                <select class="form-select" id="reservationGuests" name="personas" required>
+                  <option value="2">2 personas</option>
+                  <option value="4">4 personas</option>
+                  <option value="6">6 personas</option>
+                  <option value="8">8 personas</option>
+                  <option value="10+">10 o más personas</option>
                 </select>
-              </label>
-              <button type="submit" class="btn btn-danger btn-lg w-100 rounded-pill mt-3">Confirmar Reserva</button>
+                <button type="submit" class="btn btn-danger btn-lg w-100 rounded-pill mt-4">Confirmar reserva</button>
+                <div class="reservation-feedback mt-3" id="reservationFeedback" role="status" aria-live="polite" tabindex="-1" hidden></div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <section id="menuView" class="menu-page" aria-labelledby="menuTitle" hidden>
+        <div class="container menu-container">
+          <div class="menu-heading">
+            <p class="eyebrow">Parrilla • Steakhouse • BBQ</p>
+            <p class="menu-monogram" aria-hidden="true">DF</p>
+            <h1 id="menuTitle" tabindex="-1">Domus Fuego</h1>
+            <p class="menu-subtitle">Para los amantes del fuego y la buena carne</p>
+            <button type="button" class="btn btn-dark rounded-pill px-4 menu-back" data-close-menu>Volver al sitio</button>
+          </div>
+
+          <div class="menu-columns">
+            <div class="menu-column">
+              <section class="menu-category" aria-labelledby="wingsTitle">
+                <h2 id="wingsTitle">Alitas</h2>
+                <ul class="menu-list">
+                  <li><span>BBQ <small>6 alitas</small></span><strong>$6.90</strong></li>
+                  <li><span>Jack Daniels <small>12 alitas</small></span><strong>$12.90</strong></li>
+                  <li><span>Honey Mustang <small>24 alitas</small></span><strong>$20.90</strong></li>
+                </ul>
+                <p class="menu-note">Todas acompañadas de mini bastones de zanahoria y apio, salsa ranch y papas fritas.</p>
+              </section>
+
+              <section class="menu-category" aria-labelledby="potatoesTitle">
+                <h2 id="potatoesTitle">Papas especiales</h2>
+                <ul class="menu-list">
+                  <li><span>Salchipapa</span><strong>$2.50</strong></li>
+                  <li><span>Papas Tex-Mex</span><strong>$5.00</strong></li>
+                  <li><span>Papas Cheddar</span><strong>$6.50</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="nachosTitle">
+                <h2 id="nachosTitle">Nachos</h2>
+                <ul class="menu-list">
+                  <li><span>Tex-Mex <small>Totopos, carne molida, guacamole, pico de gallo</small></span><strong>$4.00</strong></li>
+                  <li><span>Cheese <small>Totopos, carne molida, queso cheddar, pico de gallo y mayonesa</small></span><strong>$5.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="burgersTitle">
+                <h2 id="burgersTitle">Hamburguesas</h2>
+                <p class="menu-note">Todas incluyen papas fritas.</p>
+                <ul class="menu-list">
+                  <li><span>Simple <small>Carne de res, lechuga, tomate, mayonesa y queso holandés</small></span><strong>$5.00</strong></li>
+                  <li><span>Cheddar <small>Carne de res, lechuga, tomate, mayonesa y queso cheddar líquido</small></span><strong>$6.00</strong></li>
+                  <li><span>Bacon <small>Carne de res, lechuga, tomate, mayonesa, queso holandés y bacon</small></span><strong>$6.00</strong></li>
+                  <li><span>Doble <small>2 carnes de res, 2 quesos holandeses, lechuga, tomate, mayonesa, cebolla caramelizada y salsa de champiñón</small></span><strong>$9.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="softDrinksTitle">
+                <h2 id="softDrinksTitle">Bebidas soft</h2>
+                <ul class="menu-list">
+                  <li><span>Gaseosa</span><strong>$1.50</strong></li>
+                  <li><span>Té helado</span><strong>$1.75</strong></li>
+                  <li><span>Agua mineral</span><strong>$1.50</strong></li>
+                  <li><span>Agua natural</span><strong>$1.25</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="lemonadeTitle">
+                <h2 id="lemonadeTitle">Limonadas</h2>
+                <ul class="menu-list">
+                  <li><span>Limonada de coco</span><strong>$2.50</strong></li>
+                  <li><span>Limonada de frutilla</span><strong>$2.50</strong></li>
+                  <li><span>Limonada de hierbabuena</span><strong>$2.50</strong></li>
+                  <li><span>Limonada imperial</span><strong>$2.25</strong></li>
+                  <li><span>Limonada clásica</span><strong>$2.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="juicesTitle">
+                <h2 id="juicesTitle">Jugos naturales</h2>
+                <ul class="menu-list">
+                  <li><span>Mora</span><strong>$2.25</strong></li>
+                  <li><span>Frutilla</span><strong>$2.25</strong></li>
+                  <li><span>Guanábana</span><strong>$2.25</strong></li>
+                  <li><span>Maracuyá</span><strong>$2.25</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="beerTitle">
+                <h2 id="beerTitle">Cervezas</h2>
+                <p class="menu-note">Individuales</p>
+                <ul class="menu-list">
+                  <li><span>Pilsener litro</span><strong>$4.50</strong></li>
+                  <li><span>Club litro</span><strong>$5.00</strong></li>
+                </ul>
+                <p class="menu-note">Combos</p>
+                <ul class="menu-list">
+                  <li><span>3 Pilsener de litro</span><strong>$12.00</strong></li>
+                  <li><span>3 Club de litro</span><strong>$13.50</strong></li>
+                </ul>
+              </section>
             </div>
-          </form>
+
+            <div class="menu-column">
+              <section class="menu-category" aria-labelledby="cutsTitle">
+                <h2 id="cutsTitle">Cortes uruguayos</h2>
+                <p class="menu-note">Todos incluyen ensalada fresca y papas a elección: fritas, asadas o cocinadas.</p>
+                <ul class="menu-list">
+                  <li><span>Picaña <small>250 g</small></span><strong>$18.00</strong></li>
+                  <li><span>Colita de cuadril <small>250 g</small></span><strong>$17.00</strong></li>
+                  <li><span>Rib eye <small>250 g</small></span><strong>$18.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="grillsTitle">
+                <h2 id="grillsTitle">Parrilladas</h2>
+                <ul class="menu-list">
+                  <li><span>Parrillada personal <small>Filete de pollo, chuleta de lomo, chorizo y morcilla; ensalada fresca y papas a elección</small></span><strong>$7.00</strong></li>
+                  <li><span>Parrillada personal completa <small>Filete de pollo, chuleta de lomo, carne, chorizo y morcilla; ensalada fresca y papas a elección</small></span><strong>$9.90</strong></li>
+                  <li><span>Parrillada para dos <small>2 filetes de pollo, 2 chuletas de lomo, 2 carnes, 2 chorizos, 2 morcillas, ensalada fresca grande y papas a elección</small></span><strong>$18.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="roastsTitle">
+                <h2 id="roastsTitle">Asados individuales</h2>
+                <ul class="menu-list">
+                  <li><span>Pollo <small>Filete de pollo, chorizo y ensalada fresca; papas a elección</small></span><strong>$5.50</strong></li>
+                  <li><span>Carne <small>Carne, chorizo y ensalada fresca; papas a elección</small></span><strong>$5.50</strong></li>
+                  <li><span>Cerdo <small>Chuleta de pierna, chorizo y ensalada fresca; papas a elección</small></span><strong>$5.50</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="cocktailsTitle">
+                <h2 id="cocktailsTitle">Drinks / Cócteles</h2>
+                <h3>Vodka</h3>
+                <ul class="menu-list">
+                  <li><span>Moscow Mule <small>Vodka, ginger ale, limón y sirope simple</small></span><strong>$6.00</strong></li>
+                  <li><span>Destornillador (Screwdriver) <small>Vodka y jugo de naranja</small></span><strong>$5.00</strong></li>
+                  <li><span>Vodka Tonic <small>Vodka, agua tónica y limón</small></span><strong>$5.00</strong></li>
+                </ul>
+                <h3>Ron (blanco)</h3>
+                <ul class="menu-list">
+                  <li><span>Mojito <small>Ron blanco, hierbabuena, limón, sirope simple y soda</small></span><strong>$6.00</strong></li>
+                  <li><span>Cuba Libre <small>Ron, Coca-Cola y limón</small></span><strong>$5.00</strong></li>
+                  <li><span>Piña Colada <small>Ron blanco, jugo de piña, licor de coco, crema de leche y sirope simple</small></span><strong>$6.00</strong></li>
+                </ul>
+                <h3>Tequila</h3>
+                <ul class="menu-list">
+                  <li><span>Margarita <small>Tequila, limón y triple sec</small></span><strong>$5.00</strong></li>
+                  <li><span>Tequila Sunrise <small>Tequila, jugo de naranja y granadina</small></span><strong>$6.00</strong></li>
+                  <li><span>Paloma <small>Tequila, refresco de toronja y limón</small></span><strong>$6.00</strong></li>
+                </ul>
+                <h3>Gin</h3>
+                <ul class="menu-list">
+                  <li><span>Gin Tonic <small>Gin, agua tónica y limón</small></span><strong>$5.00</strong></li>
+                  <li><span>Tom Collins <small>Gin, limón, sirope simple y soda</small></span><strong>$6.00</strong></li>
+                  <li><span>Gin Fizz <small>Gin, limón, sirope simple, soda y clara de huevo</small></span><strong>$6.00</strong></li>
+                </ul>
+                <h3>Whisky</h3>
+                <ul class="menu-list">
+                  <li><span>Whisky Sour <small>Whisky, limón y sirope simple</small></span><strong>$6.00</strong></li>
+                  <li><span>Whisky Americano <small>Whisky y Coca-Cola</small></span><strong>$5.00</strong></li>
+                  <li><span>Highball <small>Whisky y ginger ale</small></span><strong>$6.00</strong></li>
+                  <li><span>Padrino <small>Whisky y amaretto</small></span><strong>$6.00</strong></li>
+                </ul>
+              </section>
+
+              <section class="menu-category" aria-labelledby="winesTitle">
+                <h2 id="winesTitle">Vinos</h2>
+                <ul class="menu-list">
+                  <li><span>Sangría <small>Copa</small></span><strong>$6.00</strong></li>
+                  <li><span>Sangría <small>Jarra</small></span><strong>$18.00</strong></li>
+                  <li><span>Tinto de verano <small>Copa</small></span><strong>$5.00</strong></li>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <p class="menu-footer">Domus Fuego · Para los amantes del fuego y la buena carne</p>
         </div>
       </section>
     </main>
@@ -220,12 +371,26 @@
       <div class="container row g-4 mx-auto">
         <div class="col-lg-4">
           <div class="d-flex align-items-center gap-2">
-            <img src="DFLOGO.png" width="62" height="62" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" />
-            <div><strong class="d-block">Domus Fuego</strong><small class="text-warning">Fire Grill Smoke</small></div>
+            <img src="DFLOGO.png" width="62" height="62" class="rounded-circle border border-warning" alt="Logo de Domus Fuego" loading="lazy" />
+            <div><strong class="d-block">Domus Fuego</strong><small class="text-warning">Parrilla • Steakhouse • BBQ</small></div>
           </div>
         </div>
-        <div class="col-lg-4"><h4>Contacto</h4><ul class="list-unstyled text-secondary"><li>García Moreno E2-55 y, 170901 Quito</li><li>+593 99 123 4567</li><li>@domusfuego</li></ul></div>
-        <div class="col-lg-4"><h4>Horarios</h4><ul class="list-unstyled text-secondary"><li>Lun - Vie: 12:00 - 23:30</li><li>Sáb - Dom: 13:00 - 00:30</li></ul></div>
+        <div class="col-lg-4">
+          <h2 class="h4">Contacto</h2>
+          <ul class="list-unstyled text-secondary">
+            <li>García Moreno E2-55 y, 170901 Quito</li>
+            <li><a href="tel:0983067670">0983067670</a></li>
+            <li><a href="mailto:domusfuego@gmail.com">domusfuego@gmail.com</a></li>
+            <li>@domusfuego</li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2 class="h4">Horarios</h2>
+          <ul class="list-unstyled text-secondary">
+            <li>Lun - Vie: 12:00 - 23:30</li>
+            <li>Sáb - Dom: 13:00 - 00:30</li>
+          </ul>
+        </div>
       </div>
     </footer>
 

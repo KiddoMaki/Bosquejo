@@ -120,25 +120,21 @@ La página utiliza elementos semánticos apropiados como `header`, `nav`, `main`
 
 **Aspectos pendientes:**
 
-- los campos del formulario no tienen atributos `required`;
-- los mensajes de error y confirmación todavía no están implementados;
-- el formulario utiliza `action="#"`, por lo que no procesa reservas reales;
+- el formulario muestra una confirmación de solicitud, pero no procesa ni almacena reservas reales;
 - debe comprobarse el contraste final con una herramienta automática de accesibilidad;
-- conviene probar navegación completa mediante teclado.
+- conviene completar una auditoría de navegación por teclado en distintos navegadores.
 
 ### 4.7. Formulario de reservas
 
 **Severidad:** Media
-**Estado:** Bosquejo visual
+**Estado:** Demostración funcional de interfaz; pendiente conexión con un sistema real.
 
-El formulario contiene nombre, fecha, hora y número de personas, por lo que cubre el flujo visual básico de una reserva. Sin embargo, actualmente funciona únicamente como demostración de interfaz.
+El formulario solicita nombre, fecha, hora y número de personas. Los campos son obligatorios, se impiden fechas anteriores al día actual y se informa al usuario que su solicitud fue recibida, con un enlace para contactar al restaurante al 0983067670.
 
 **Limitaciones:**
 
 - no existe una conexión con un servidor o servicio de reservas;
-- no hay validación personalizada en el cliente;
-- no se impide seleccionar fechas pasadas;
-- no se muestra un resultado después del envío;
+- el mensaje no confirma disponibilidad ni una reserva efectiva;
 - los datos no se almacenan ni se envían a un destinatario real.
 
 ### 4.8. Rendimiento y recursos externos

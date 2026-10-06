@@ -1,27 +1,30 @@
 # Domus Fuego
 
-Bosquejo estático de una landing page para un restaurante gourmet de carnes premium.
+Sitio web responsive para Domus Fuego, restaurante de parrilla, steakhouse y BBQ.
 
 ## Tecnologías
-- HTML
-- Bootstrap 5.3
-- CSS complementario para la identidad visual
+
+- HTML5 semántico
+- CSS3, Bootstrap 5.3 y estilos propios
+- JavaScript ES6 para navegación, validación de reservas y mensajes de estado
 
 ## Vista previa local
-Puedes abrir directamente el archivo index.html en el navegador o ejecutar:
+
+Abre `index.html` en un navegador o ejecuta un servidor local:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Luego visita:
+Visita `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
+## Funcionalidades
 
-## Proyecto
-Este repositorio contiene el bosquejo visual del restaurante Domus Fuego con estilo premium, oscuro y elegante. Bootstrap controla la estructura responsive, la navbar, las cards, el formulario y los componentes principales; `styles.css` complementa la identidad visual.
+- Diseño adaptable a móviles, tabletas y escritorio, con etiquetas ARIA y controles accesibles por teclado.
+- El botón **Menú** abre una vista exclusiva con las categorías y precios compartidos por el restaurante; **Volver al sitio** restaura la página principal.
+- El formulario rechaza fechas anteriores al día actual y muestra una confirmación de solicitud con un enlace para llamar al **0983067670**.
+- Contacto por correo: `domusfuego@gmail.com`.
 
-## Nota
-El diseño fue auditado y ajustado para mejor legibilidad y comportamiento responsive en teléfonos.
+## Alcance de las reservas
+
+El formulario es una demostración de interfaz: no envía ni almacena reservas y no confirma disponibilidad. Para confirmar la solicitud, el cliente debe comunicarse con el restaurante por teléfono.

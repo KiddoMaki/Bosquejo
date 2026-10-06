@@ -35,6 +35,7 @@ body {
   margin: 0;
   min-width: 18rem;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   font-family: var(--font-body);
@@ -759,5 +760,231 @@ p {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* The menu is a standalone view; the navigation remains available to return. */
+[hidden] {
+  display: none !important;
+}
+
+.menu-nav-button {
+  border: 0;
+  background: transparent;
+}
+
+.menu-page {
+  min-height: 100vh;
+  padding: clamp(1.5rem, 5vw, 4rem) 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(214, 172, 92, 0.1), transparent 35%),
+    radial-gradient(ellipse at 95% 45%, rgba(125, 31, 31, 0.13), transparent 38%),
+    var(--bg);
+}
+
+.menu-container {
+  position: relative;
+  max-width: 1180px;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+  border: 1px solid rgba(214, 172, 92, 0.45);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, rgba(23, 24, 26, 0.98), rgba(11, 11, 13, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.menu-heading {
+  position: relative;
+  text-align: center;
+  padding: 0 0 1.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.menu-page .eyebrow {
+  color: var(--gold-soft);
+}
+
+.menu-monogram {
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  margin: 0 auto 0.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold-soft);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0 0 28px rgba(214, 172, 92, 0.14);
+}
+
+.menu-heading h1 {
+  max-width: none;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.menu-subtitle,
+.menu-footer {
+  color: var(--gold-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-back {
+  margin-top: 1rem;
+}
+
+.menu-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.menu-column {
+  min-width: 0;
+}
+
+.menu-category {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+  break-inside: avoid;
+}
+
+.menu-category h2 {
+  margin-bottom: 0.85rem;
+  color: var(--gold-soft);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-transform: uppercase;
+}
+
+.menu-category h3 {
+  margin: 1.2rem 0 0.6rem;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.menu-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--text);
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+}
+
+.menu-list li > span {
+  min-width: 0;
+}
+
+.menu-list strong {
+  flex: 0 0 auto;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+
+.menu-list small {
+  display: block;
+  max-width: 46rem;
+  margin-top: 0.12rem;
+  color: var(--muted);
+  font-size: 0.85em;
+  line-height: 1.45;
+}
+
+.menu-note {
+  margin: 0.5rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.menu-footer {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+.reservation-feedback {
+  padding: 1rem;
+  border: 1px solid rgba(214, 172, 92, 0.65);
+  border-radius: 0.75rem;
+  background: rgba(214, 172, 92, 0.12);
+  color: var(--text);
+}
+
+.reservation-feedback p {
+  margin: 0;
+}
+
+.reservation-feedback a {
+  color: var(--gold-soft);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.reservation-form :focus-visible,
+.menu-page :focus-visible,
+.navbar :focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .menu-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .menu-column + .menu-column {
+    padding-left: clamp(1.5rem, 3vw, 2.75rem);
+    border-left: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .navbar-brand span {
+    min-width: 0;
+  }
+
+  .navbar-brand small {
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .menu-container {
+    width: calc(100% - 2rem);
+  }
+
+  .menu-page .menu-list li {
+    gap: 0.5rem;
+  }
+
+  .menu-heading h1 {
+    letter-spacing: 0.035em;
   }
 }
